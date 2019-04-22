@@ -44,7 +44,7 @@ HorribleSubsRenamer.exe --dir "C:\Test\"
 ### --extensions
 This option is used to specify the file extensions which should be indexed.  
 Required: false  
-Default: "mkv"  
+Default: mkv  
 
 Example:  
 ```
