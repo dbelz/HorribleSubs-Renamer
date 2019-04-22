@@ -18,6 +18,7 @@ This is a simple console application which is able to rename files downloaded fr
     * [--dir](#--dir)
 	* [--extensions](#--extensions)
 	* [--season](#--season)
+	* [--old-value and --new-value](#--new-value-and---old-valu)
     * [--headless](#--headless)
 
 <br>
@@ -48,6 +49,22 @@ Default: "mkv"
 Example:  
 ```
 HorribleSubsRenamer.exe --extensions mkv mp4
+```
+
+### --old-value and --new-value
+These options are used to replace a certain string in the extractd title.
+Required: false  
+Default: null  
+
+Example:  
+```
+Source title:
+Tokyo Ghoul S2
+
+HorribleSubsRenamer.exe --old-value "S2" --new-value ""
+
+Output:
+Tokyo Ghoul
 ```
 
 ### --season
