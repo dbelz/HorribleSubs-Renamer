@@ -32,41 +32,37 @@ Tokyo Ghoul - s01e01.mkv
 
 ### --dir
 This option is used to specify the directory where the files to rename are located.  
+Required: false  
+Default: Current directory  
 
-**Required: false**  
-**Default: Current directory**  
-
-**Example:**  
+Example:  
 ```
 HorribleSubsRenamer.exe --dir "C:\Test\"
 ```
 
 ### --extensions
 This option is used to specify the file extensions which should be indexed.  
+Required: false  
+Default: "mkv"  
 
-**Required: false**  
-**Default: "mkv"**  
-
-**Example:**  
+Example:  
 ```
 HorribleSubsRenamer.exe --extensions mkv mp4
 ```
 
 ### --season
 This option is used to specify the season number.  
+Required: false  
+Default: 1  
 
-**Required: false**  
-**Default: 1**  
-
-**Example:**  
+Example:  
 ```
 HorribleSubsRenamer.exe -- season 2
 ```
 
 ### --headless
 This option is used to specify if the application should run in headless mode (not asking for confirmation etc.).  
-
-**Example:**  
+Example:  
 ```
 HorribleSubsRenamer.exe -- headless true
 ```
