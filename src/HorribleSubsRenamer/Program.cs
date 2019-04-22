@@ -29,7 +29,7 @@ namespace HorribleSubsRenamer
                 _extensions = options.Extensions;
 
                 if (!options.Extensions.Any())
-                    throw new ArgumentException("You must specify at least one file extension!");
+                    _extensions = new List<string> { "mkv" };
 
                 if (options.Directory == null)
                     options.Directory = Environment.CurrentDirectory;

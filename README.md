@@ -25,22 +25,42 @@ This is a simple console application which is able to rename files downloaded fr
 # Commandline options
 
 ### --dir
-This option is used to specify the directory where the files to rename are located. 
-**Required: false** 
-**Default: Current directory** 
+This option is used to specify the directory where the files to rename are located.  
+**Required: false**  
+**Default: Current directory**  
 
-**Example:** 
+**Example:**  
+```
+HorribleSubsRenamer.exe --dir "C:\Test\"
+```
 
 ### --extensions
+This option is used to specify the file extensions which should be indexed.  
+**Required: false**  
+**Default: "mkv"**  
+
+**Example:**  
+```
+HorribleSubsRenamer.exe --extensions mkv mp4
+```
 
 ### --season
-This option is used to specify the season number
-**Required: false** 
-**Default: 1** 
+This option is used to specify the season number.  
+**Required: false**  
+**Default: 1**  
 
-**Example:** 
+**Example:**  
+```
+HorribleSubsRenamer.exe -- season 2
+```
 
 ### --headless
+This option is used to specify if the application should run in headless mode (not asking for confirmation etc.).  
+
+**Example:**  
+```
+HorribleSubsRenamer.exe -- headless true
+```
 
 ## Contributing
 
