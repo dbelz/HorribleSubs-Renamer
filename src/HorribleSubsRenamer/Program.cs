@@ -98,7 +98,7 @@ namespace HorribleSubsRenamer
 
             Parallel.ForEach(files, (file) =>
             {
-                var nameAndEpisode = file.Name.Between("] ", " [");
+                var nameAndEpisode = file.Name.Between("]", "[");
 
                 if (string.IsNullOrWhiteSpace(nameAndEpisode))
                     return;
@@ -108,8 +108,8 @@ namespace HorribleSubsRenamer
                 if (nameAndEpisodeSplit.Length < 2)
                     return;
 
-                string name = nameAndEpisodeSplit[0];
-                string episode = nameAndEpisodeSplit[1];
+                string name = nameAndEpisodeSplit[0].Trim();
+                string episode = nameAndEpisodeSplit[1].Trim();
 
                 if (_oldValue != null && _newValue != null)
                     name = name.Replace(_oldValue, _newValue);
