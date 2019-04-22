@@ -58,13 +58,11 @@ Default: null
 
 Example:  
 ```
-Source title:
-Tokyo Ghoul S2
+Source title: Tokyo Ghoul S2
 
 HorribleSubsRenamer.exe --old-value "S2" --new-value ""
 
-Output:
-Tokyo Ghoul
+Output: Tokyo Ghoul
 ```
 
 ### --season
