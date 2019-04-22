@@ -5,7 +5,6 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-with-grammas-recipe.svg)](https://forthebadge.com)
 
 [![GitHub license](https://img.shields.io/github/license/dbelz/HorribleSubs-Renamer.svg?longCache=true&style=flat-square)](https://github.com/dbelz/HorriblSubs-Renamer/blob/master/LICENSE.md)
-[![Nuget](https://img.shields.io/nuget/v/HorribleSubsRenamer.svg?style=flat-square)](https://www.nuget.org/packages/HorribleSubsRenamer/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/dbelz/HorriblSubs-Renamer.svg?longCache=true&style=flat-square)](https://github.com/dbelz/HorriblSubs-Renamer)
 [![GitHub issues](https://img.shields.io/github/issues/dbelz/HorribleSubs-Renamer.svg?longCache=true&style=flat-square)](https://github.com/dbelz/HorriblSubs-Renamer/issues)
 
