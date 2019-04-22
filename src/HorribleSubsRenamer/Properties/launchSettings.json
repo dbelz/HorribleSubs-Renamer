@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "HorribleSubsRenamer": {
+      "commandName": "Project",
+      "commandLineArgs": "--dir \"F:\\test\" --extensions mkv mp4"
+    }
+  }
+}
