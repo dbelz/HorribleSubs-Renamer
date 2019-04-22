@@ -18,7 +18,7 @@ This is a simple console application which is able to rename files downloaded fr
     * [--dir](#--dir)
 	* [--extensions](#--extensions)
 	* [--season](#--season)
-	* [--old-value and --new-value](#--new-value-and---old-valu)
+	* [--old-value and --new-value](#--old-value-and---new-value)
     * [--headless](#--headless)
 
 <br>
@@ -51,7 +51,7 @@ Example:
 HorribleSubsRenamer.exe --extensions mkv mp4
 ```
 
-### --old-value and new-value
+### --old-value and --new-value
 These options are used to replace a certain string in the extractd title.  
 Required: false  
 Default: null  
