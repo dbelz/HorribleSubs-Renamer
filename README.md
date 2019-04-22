@@ -38,7 +38,7 @@ Default: Current directory
 
 Example:  
 ```
-HorribleSubsRenamer.exe --dir "C:\Test\"
+dotnet HorribleSubsRenamer.dll --dir "C:\Test\"
 ```
 
 ### --extensions
@@ -48,7 +48,7 @@ Default: mkv
 
 Example:  
 ```
-HorribleSubsRenamer.exe --extensions mkv mp4
+dotnet HorribleSubsRenamer.dll --extensions mkv mp4
 ```
 
 ### --old-value and --new-value
@@ -60,7 +60,7 @@ Example:
 ```
 Source title: Tokyo Ghoul S2
 
-HorribleSubsRenamer.exe --old-value "S2" --new-value ""
+dotnet HorribleSubsRenamer.dll --old-value "S2" --new-value ""
 
 Output: Tokyo Ghoul
 ```
@@ -72,14 +72,14 @@ Default: 1
 
 Example:  
 ```
-HorribleSubsRenamer.exe -- season 2
+dotnet HorribleSubsRenamer.dll -- season 2
 ```
 
 ### --headless
 This option is used to specify if the application should run in headless mode (not asking for confirmation etc.).  
 Example:  
 ```
-HorribleSubsRenamer.exe -- headless true
+dotnet HorribleSubsRenamer.dll -- headless true
 ```
 
 ## Contributing
