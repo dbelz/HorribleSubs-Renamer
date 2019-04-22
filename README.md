@@ -51,7 +51,7 @@ Example:
 HorribleSubsRenamer.exe --extensions mkv mp4
 ```
 
-### --old-value and --new-value
+### --old-value and new-value
 These options are used to replace a certain string in the extractd title.  
 Required: false  
 Default: null  
