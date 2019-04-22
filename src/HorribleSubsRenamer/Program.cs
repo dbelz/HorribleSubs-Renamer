@@ -17,6 +17,8 @@ namespace HorribleSubsRenamer
 
         private static int _season;
         private static IEnumerable<string> _extensions;
+        private static string _oldValue;
+        private static string _newValue;
 
         static void Main(string[] args)
         {
@@ -27,6 +29,8 @@ namespace HorribleSubsRenamer
             {
                 _season = options.Season;
                 _extensions = options.Extensions;
+                _oldValue = options.OldValue;
+                _newValue = options.NewValue;
 
                 if (!options.Extensions.Any())
                     _extensions = new List<string> { "mkv" };
@@ -85,11 +89,6 @@ namespace HorribleSubsRenamer
             return false;
         }
 
-        private static void WriteLine(string input)
-        {
-            Console.WriteLine($"{DateTime.Now} : {input}");
-        }
-
         private static void PopulateFileRenameJobList(DirectoryInfo directory)
         {
             var files = directory.GetFiles().Where(f => _extensions.Contains(f.Extension.Replace(".", "")));
@@ -112,6 +111,9 @@ namespace HorribleSubsRenamer
                 string name = nameAndEpisodeSplit[0];
                 string episode = nameAndEpisodeSplit[1];
 
+                if (_oldValue != null && _newValue != null)
+                    name = name.Replace(_oldValue, _newValue);
+
                 var item = new FileRenameJob(
                     GetNewFileName(name, episode, file.Extension),
                     file);
@@ -131,6 +133,11 @@ namespace HorribleSubsRenamer
                 season = $"0{_season}";
 
             return $"{title} - s{season}e{episode}{extension}";
+        }
+
+        private static void WriteLine(string input)
+        {
+            Console.WriteLine($"{DateTime.Now} : {input}");
         }
     }
 }
