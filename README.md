@@ -14,7 +14,8 @@ This is a simple console application which is able to rename files downloaded fr
 <sub>Built with ❤︎ by Daniel Belz</sub>
 </div><br>
 
-* [Commandline options](#getting-started)
+* [Sample output](#sample-output)
+* [Commandline options](#commandline-options)
     * [--dir](#--dir)
 	* [--extensions](#--extensions)
 	* [--season](#--season)
@@ -22,10 +23,17 @@ This is a simple console application which is able to rename files downloaded fr
 
 <br>
 
-# Commandline options
+## Sample output
+A renamed file will look like this:
+```
+Tokyo Ghoul - s01e01.mkv
+```
+
+## Commandline options
 
 ### --dir
 This option is used to specify the directory where the files to rename are located.  
+
 **Required: false**  
 **Default: Current directory**  
 
@@ -36,6 +44,7 @@ HorribleSubsRenamer.exe --dir "C:\Test\"
 
 ### --extensions
 This option is used to specify the file extensions which should be indexed.  
+
 **Required: false**  
 **Default: "mkv"**  
 
@@ -46,6 +55,7 @@ HorribleSubsRenamer.exe --extensions mkv mp4
 
 ### --season
 This option is used to specify the season number.  
+
 **Required: false**  
 **Default: 1**  
 
