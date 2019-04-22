@@ -73,7 +73,7 @@ Default: 1
 
 Example:  
 ```
-dotnet HorribleSubsRenamer.dll -- season 2
+dotnet HorribleSubsRenamer.dll --season 2
 ```
 
 ### --create-subfolders
@@ -83,7 +83,7 @@ Default: true
 
 Example:  
 ```
-dotnet HorribleSubsRenamer.dll -- create-subfolders true
+dotnet HorribleSubsRenamer.dll --create-subfolders true
 ```
 
 ### --headless
@@ -93,7 +93,7 @@ Default: false
 
 Example:  
 ```
-dotnet HorribleSubsRenamer.dll -- headless true
+dotnet HorribleSubsRenamer.dll --headless true
 ```
 
 ## Contributing
