@@ -19,6 +19,7 @@ namespace HorribleSubsRenamer
         private static IEnumerable<string> _extensions;
         private static string _oldValue;
         private static string _newValue;
+        private static bool _shouldRunHeadless;
 
         static void Main(string[] args)
         {
@@ -31,56 +32,71 @@ namespace HorribleSubsRenamer
                 _extensions = options.Extensions;
                 _oldValue = options.OldValue;
                 _newValue = options.NewValue;
+                _shouldRunHeadless = options.ShouldRunHeadless;
 
                 if (!options.Extensions.Any())
                     _extensions = new List<string> { "mkv" };
 
-                if (options.Directory == null)
-                    options.Directory = Environment.CurrentDirectory;
+                if (options.SourceDirectory == null)
+                    options.SourceDirectory = Environment.CurrentDirectory;
 
-                var directory = new DirectoryInfo(options.Directory);
+                var directory = new DirectoryInfo(options.SourceDirectory);
 
                 if (!directory.Exists)
-                    throw new ArgumentException("The provided path does not lead to a directory!");
+                {
+                    WriteLine(Output.BrightRed("The provided path does not lead to a directory!"), false);
+                    ShowMessageAndExit();
+                }
 
                 PopulateFileRenameJobList(directory);
 
                 if (!_jobs.Any())
                 {
-                    Console.WriteLine(Output.BrightRed($"No files where found in directory '{directory.Name}'! The application will exit in 5 seconds.."));
-                    Thread.Sleep(5000);
-                    return;
+                    WriteLine(Output.BrightRed($"No files where found in directory '{directory.Name}'"), false);
+                    ShowMessageAndExit();
                 }
 
-                if (!options.Headless)
+                if (!options.ShouldRunHeadless)
                 {
                     if (!QueryUserForConfirmation())
                         return;
 
-                    Console.WriteLine();
-                    Console.WriteLine();
+                    WriteLine(string.Empty, false);
+                    WriteLine(string.Empty, false);
                 }
 
                 Parallel.ForEach(_jobs, (item) =>
                 {
-                    if (!File.Exists(item.File.FullName))
-                    {
-                        WriteLine(Output.BrightYellow($"Skipping file '{item.File.Name}' because it does not exist anymore!"));
-                        return;
+                if (!File.Exists(item.File.FullName))
+                {
+                    WriteLine(Output.BrightYellow($"Skipping file '{item.File.Name}' because it does not exist anymore!"));
+                    return;
+                }
+
+                try
+                {
+                    var targetDirectory = directory;
+
+                        if (options.ShouldCreateSubfolders)
+                        {
+                            targetDirectory = directory.CreateSubdirectory(item.NewFileName.Replace(item.File.Extension, ""));
+                            WriteLine(Output.Green($"Created directory for file '{item.File.Name}'"));
+                        }
+
+                        File.Move(item.File.FullName, Path.Combine(targetDirectory.FullName, item.NewFileName));
+                        WriteLine(Output.Green($"Renamed file '{item.File.Name}' to '{item.NewFileName}'"));
                     }
-
-                    WriteLine(Output.Green($"Renaming file '{item.File.Name}' to '{item.NewFileName}'"));
-
-                    File.Move(item.File.FullName, Path.Combine(directory.FullName, item.NewFileName));
+                    catch (Exception e)
+                    {
+                        WriteLine(Output.BrightRed($"Failed to process file '{item.File.Name}' : {e.Message}"));
+                    }
                 });
-
-                Console.ReadLine();
             });
         }
 
         private static bool QueryUserForConfirmation()
         {
-            Console.WriteLine($"{_jobs.Count} file(s) where found to rename. Do you want to proceed? (y / any other key for exit)");
+            WriteLine($"{_jobs.Count} file(s) where found to rename. Do you want to proceed? (y / any other key for exit)", false);
             var input = Console.ReadKey();
 
             if (input.Key == ConsoleKey.Y)
@@ -135,9 +151,23 @@ namespace HorribleSubsRenamer
             return $"{title} - s{season}e{episode}{extension}";
         }
 
-        private static void WriteLine(string input)
+        private static void ShowMessageAndExit()
         {
-            Console.WriteLine($"{DateTime.Now} : {input}");
+            WriteLine($"The application will exit in 5 seconds..", false);
+            Thread.Sleep(5000);
+
+            Environment.Exit(0);
+        }
+
+        private static void WriteLine(string input, bool printDateTime = true)
+        {
+            if (_shouldRunHeadless)
+                return;
+
+            if (printDateTime)
+                Console.WriteLine($"{DateTime.Now} : {input}");
+            else
+                Console.WriteLine(input);
         }
     }
 }

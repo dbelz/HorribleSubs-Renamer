@@ -15,10 +15,11 @@ This is a simple console application which is able to rename files downloaded fr
 
 * [Sample output](#sample-output)
 * [Commandline options](#commandline-options)
-    * [--dir](#--dir)
+    * [--source](#--source)
 	* [--extensions](#--extensions)
 	* [--season](#--season)
 	* [--old-value and --new-value](#--old-value-and---new-value)
+	* [--create-subfolders](#create-subfolders)
     * [--headless](#--headless)
 
 <br>
@@ -31,14 +32,14 @@ Tokyo Ghoul - s01e01.mkv
 
 ## Commandline options
 
-### --dir
+### --source
 This option is used to specify the directory where the files to rename are located.  
 Required: false  
 Default: Current directory  
 
 Example:  
 ```
-dotnet HorribleSubsRenamer.dll --dir "C:\Test\"
+dotnet HorribleSubsRenamer.dll --source "C:\Test\"
 ```
 
 ### --extensions
@@ -52,7 +53,7 @@ dotnet HorribleSubsRenamer.dll --extensions mkv mp4
 ```
 
 ### --old-value and --new-value
-These options are used to replace a certain string in the extractd title.  
+These options are used to replace a certain string in the extracted title.  
 Required: false  
 Default: null  
 
@@ -75,8 +76,15 @@ Example:
 dotnet HorribleSubsRenamer.dll -- season 2
 ```
 
+### --create-subfolders
+Used to specify if the application should create a directory for every renamed episode.  
+Example:  
+```
+dotnet HorribleSubsRenamer.dll -- create-subfolders true
+```
+
 ### --headless
-This option is used to specify if the application should run in headless mode (not asking for confirmation etc.).  
+Used to specify if the application should run in headless mode (not asking for confirmation).  
 Example:  
 ```
 dotnet HorribleSubsRenamer.dll -- headless true
