@@ -43,16 +43,19 @@ namespace HorribleSubsRenamer
 
                 if (!_jobs.Any())
                 {
-                    Console.WriteLine(Output.BrightRed($"No files where found! The application will exit in 5 seconds.."));
+                    Console.WriteLine(Output.BrightRed($"No files where found in directory '{directory.Name}'! The application will exit in 5 seconds.."));
                     Thread.Sleep(5000);
                     return;
                 }
 
-                if (!QueryUserForConfirmation())
-                    return;
+                if (!options.Headless)
+                {
+                    if (!QueryUserForConfirmation())
+                        return;
 
-                Console.WriteLine();
-                Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine();
+                }
 
                 Parallel.ForEach(_jobs, (item) =>
                 {
