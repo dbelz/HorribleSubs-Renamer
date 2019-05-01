@@ -79,11 +79,11 @@ dotnet HorribleSubsRenamer.dll --season 2
 ### --create-subfolders
 Used to specify if the application should create a directory for every renamed episode.  
 Required: false  
-Default: true  
+Default: false  
 
 Example:  
 ```
-dotnet HorribleSubsRenamer.dll --create-subfolders true
+dotnet HorribleSubsRenamer.dll --create-subfolders
 ```
 
 ### --headless
@@ -93,7 +93,7 @@ Default: false
 
 Example:  
 ```
-dotnet HorribleSubsRenamer.dll --headless true
+dotnet HorribleSubsRenamer.dll --headless
 ```
 
 ## Contributing
