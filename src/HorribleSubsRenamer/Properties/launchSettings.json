@@ -1,7 +1,8 @@
 {
   "profiles": {
     "HorribleSubsRenamer": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "--source \"F:\\media-rename\" --old-value \"re\" --new-value \"\" --season \"3\" --create-subfolders \"false\""
     }
   }
 }

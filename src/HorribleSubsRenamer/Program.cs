@@ -65,17 +65,17 @@ namespace HorribleSubsRenamer
                     WriteLine(string.Empty, false);
                 }
 
-                Parallel.ForEach(_jobs, (item) =>
+                foreach (var item in _jobs)
                 {
-                if (!File.Exists(item.File.FullName))
-                {
-                    WriteLine(Output.BrightYellow($"Skipping file '{item.File.Name}' because it does not exist anymore!"));
-                    return;
-                }
+                    if (!File.Exists(item.File.FullName))
+                    {
+                        WriteLine(Output.BrightYellow($"Skipping file '{item.File.Name}' because it does not exist anymore!"));
+                        return;
+                    }
 
-                try
-                {
-                    var targetDirectory = directory;
+                    try
+                    {
+                        var targetDirectory = directory;
 
                         if (options.ShouldCreateSubfolders)
                         {
@@ -90,8 +90,10 @@ namespace HorribleSubsRenamer
                     {
                         WriteLine(Output.BrightRed($"Failed to process file '{item.File.Name}' : {e.Message}"));
                     }
-                });
+                }
             });
+
+            Console.ReadLine();
         }
 
         private static bool QueryUserForConfirmation()
@@ -112,7 +114,7 @@ namespace HorribleSubsRenamer
             if (!files.Any())
                 return;
 
-            Parallel.ForEach(files, (file) =>
+            foreach(var file in files)
             {
                 var nameAndEpisode = file.Name.Between("]", "[");
 
@@ -135,7 +137,7 @@ namespace HorribleSubsRenamer
                     file);
 
                 _jobs.Add(item);
-            });
+            };
         }
 
         private static string GetNewFileName(
