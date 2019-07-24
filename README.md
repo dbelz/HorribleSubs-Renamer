@@ -4,9 +4,9 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-grammas-recipe.svg)](https://forthebadge.com)
 
-[![GitHub license](https://img.shields.io/github/license/dbelz/HorribleSubs-Renamer.svg?longCache=true&style=flat-square)](https://github.com/dbelz/HorribleSubs-Renamer/blob/master/LICENSE.md)
-[![GitHub last commit](https://img.shields.io/github/last-commit/dbelz/HorribleSubs-Renamer.svg?longCache=true&style=flat-square)](https://github.com/dbelz/HorribleSubs-Renamer)
-[![GitHub issues](https://img.shields.io/github/issues/dbelz/HorribleSubs-Renamer.svg?longCache=true&style=flat-square)](https://github.com/dbelz/HorribleSubs-Renamer/issues)
+[![GitHub license](https://img.shields.io/github/license/LegendaryB/HorribleSubs-Renamer.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/HorribleSubs-Renamer/blob/master/LICENSE.md)
+[![GitHub last commit](https://img.shields.io/github/last-commit/LegendaryB/HorribleSubs-Renamer.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/HorribleSubs-Renamer)
+[![GitHub issues](https://img.shields.io/github/issues/LegendaryB/HorribleSubs-Renamer.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/HorribleSubs-Renamer/issues)
 
 This is a simple console application which is able to rename files downloaded from HorribleSubs XDCC bots to the emby/jellyfin/kodi/plex compatible format.
 
